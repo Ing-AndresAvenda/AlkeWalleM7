@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Wallet</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+        }
+        
+      .container {
+            max-width: 400px;
+            margin: 40px auto;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        
+      .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+      .btn {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+      .btn:hover {
+            background-color: #23527c;
+        }
+        
+      .text-center {
+            text-align: center;
+        }
+        
+      .mt-3 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Sistema Wallet V.1 <span th:text="${username}"></span>       </h1>
+        <a href="/vistaClientes/nuevoCrearCliente" class="btn btn-block mt-3">Crear Nuevo Cliente</a>
+        <a href="/vistaClientes" class="btn btn-block mt-3">Ver Clientes</a>
+		<a href="/vistaClientes/transferirFondos" class="btn btn-block mt-3">Transferir entre cuentas</a>
+		<a href="/vistaClientes/depositarCuenta" class="btn btn-block mt-3">Depositar a Cuenta</a>
+		<a href="/vistaClientes/retirarDeCuenta" class="btn btn-block mt-3">Retirar de Cuenta</a>
+		<a href="/movimientos" class="btn btn-block mt-3">Ver historial de transacciones</a>
+		
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

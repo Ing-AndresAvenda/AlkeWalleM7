@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listar Clientes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+        }
+        
+      .container {
+            max-width: 600px;
+            margin: 40px auto;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        
+      .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+      .table {
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            font-weight: bold;
+        }
+        
+      .btn {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+      .btn:hover {
+            background-color: #23527c;
+        }
+        
+      .text-center {
+            text-align: center;
+        }
+        
+      .mt-3 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Listar Clientes</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Titular de la Cuenta</th>
+                    <th>Saldo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.id_Cliente}"></td>
+                    <td th:text="${cliente.nombreCliente}"></td>
+                    <td th:text="${cliente.apellidoCliente}"></td>
+                    <td th:text="${cliente.cuenta.titularCuenta}"></td>
+                    <td th:text="${cliente.cuenta.saldoCuenta}"></td>
+                    <td>
+                        <a th:href="@{/vistaClientes/{id}(id=${cliente.id_Cliente})}" class="btn btn-sm">Ver</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="/vistaClientes/nuevoCrearCliente" class="btn">Crear Nuevo Cliente</a>
+            <a href="/" class="btn">Menu Principal</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
